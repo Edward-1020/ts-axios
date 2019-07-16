@@ -67,3 +67,11 @@ export interface AxiosInstance extends Axios {
 
   <T = any>(url: string, config?: AxiosRequestConfig): AxiosPromise<T>
 }
+
+export interface AxiosInterceptorManager {
+  use(resolved: ResolvedFn, rejected);
+}
+
+export interface ResolvedFn<T> {
+  (val: T): T | Promise<T>
+}
