@@ -1,8 +1,8 @@
 export default class Cancel {
-  messgae?: string
+  message?: string
 
   constructor(message?: string) {
-    this.messgae = message;
+    this.message = message
   }
 }
 
