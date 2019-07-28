@@ -23,7 +23,7 @@ export interface AxiosRequestConfig {
   responseType?: XMLHttpRequestResponseType
   timeout?: number
   transformRequest?: AxiosTransformer | AxiosTransformer[]
-  transfromResponse?: AxiosTransformer | AxiosTransformer[]
+  transformResponse?: AxiosTransformer | AxiosTransformer[]
   cancelToken?: CancelToken
   withCredentials?: boolean
   xsrfCookieName?: string
@@ -47,15 +47,14 @@ export interface AxiosResponse<T = any> {
   request: any
 }
 
-export interface AxiosPromise<T = any> extends Promise<AxiosResponse<T>> {
-}
+export interface AxiosPromise<T = any> extends Promise<AxiosResponse<T>> {}
 
 export interface AxiosError extends Error {
-  isAxiosError: boolean
   config: AxiosRequestConfig
   code?: string
   request?: any
   response?: AxiosResponse
+  isAxiosError: boolean
 }
 
 export interface Axios {
@@ -75,11 +74,11 @@ export interface Axios {
 
   options<T = any>(url: string, config?: AxiosRequestConfig): AxiosPromise<T>
 
-  post<T = any>(url: string, data?: any, config?:AxiosRequestConfig): AxiosPromise<T>
+  post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T>
 
-  put<T = any>(url: string, data?: any, config?:AxiosRequestConfig): AxiosPromise<T>
+  put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T>
 
-  patch<T = any>(url: string, data?: any, config?:AxiosRequestConfig): AxiosPromise<T>
+  patch<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T>
 
   getUri(config?: AxiosRequestConfig): string
 }
@@ -91,7 +90,7 @@ export interface AxiosInstance extends Axios {
 }
 
 export interface AxiosClassStatic {
-  new(config: AxiosRequestConfig): Axios
+  new (config: AxiosRequestConfig): Axios
 }
 
 export interface AxiosStatic extends AxiosInstance {
@@ -109,7 +108,7 @@ export interface AxiosStatic extends AxiosInstance {
 }
 
 export interface AxiosInterceptorManager<T> {
-  use(resolved: ResolvedFn<T>, rejected?: RejectedFn): number;
+  use(resolved: ResolvedFn<T>, rejected?: RejectedFn): number
 
   eject(id: number): void
 }
@@ -147,7 +146,7 @@ export interface CancelTokenSource {
 }
 
 export interface CancelTokenStatic {
-  new(executor: CancelExecutor): CancelToken
+  new (executor: CancelExecutor): CancelToken
 
   source(): CancelTokenSource
 }
@@ -157,7 +156,7 @@ export interface Cancel {
 }
 
 export interface CancelStatic {
-  new(message?: string): Cancel
+  new (message?: string): Cancel
 }
 
 export interface AxiosBasicCredentials {
